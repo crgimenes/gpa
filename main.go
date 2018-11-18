@@ -32,7 +32,7 @@ func folderExists(path string) (fs bool) {
 }
 
 func execHelper(path, name string, arg ...string) (err error) {
-	cmd := exec.Command(name, arg...)
+	cmd := exec.Command(name, arg...) // nolint
 	cmd.Dir = path
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
