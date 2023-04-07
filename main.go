@@ -8,15 +8,15 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/gosidekick/goconfig"
+	"crg.eti.br/go/config"
 )
 
-type config struct {
+type Config struct {
 	Path       string `cfg:"p"`
 	Submodules bool   `cfg:"sm"`
 }
 
-var cfg config
+var cfg Config
 
 func folderExists(path string) (fs bool) {
 	_, err := os.Stat(path)
@@ -89,8 +89,8 @@ func visit(path string, f os.FileInfo, perr error) error {
 }
 
 func run() (err error) {
-	goconfig.PrefixEnv = `GIT_PULL`
-	if err = goconfig.Parse(&cfg); err != nil {
+	config.PrefixEnv = `GIT_PULL`
+	if err = config.Parse(&cfg); err != nil {
 		return
 	}
 	if cfg.Path == "" {

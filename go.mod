@@ -1,5 +1,5 @@
-module github.com/gosidekick/gpa
+module gpa
 
-go 1.15
+go 1.20
 
-require github.com/gosidekick/goconfig v1.3.0
+require crg.eti.br/go/config v1.4.13
